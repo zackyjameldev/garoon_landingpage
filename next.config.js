@@ -18,7 +18,13 @@ const nextConfig = {
       }
     });
     return config;
-  }
+  },
+  /** @type {import('next').NextConfig} */
+  images: {
+    domains: ['randomuser.me'],
+  },
+
 };
+
 
 module.exports = nextConfig; 

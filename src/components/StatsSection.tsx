@@ -2,7 +2,7 @@ import React from "react";
 
 export default function StatsSection() {
   return (
-    <section className="w-full py-16 px-6 md:px-12 bg-gray-50">
+    <section className="w-full py-16 px-6 md:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           {/* Stat 1 */}

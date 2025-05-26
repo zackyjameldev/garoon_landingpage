@@ -6,75 +6,79 @@ import FeatureHero from "../../components/FeatureHero";
 import FeatureSection from "../../components/FeatureSection";
 import FaqSection from "../../components/FaqSection";
 import FindBookPlaySection from "../../components/FindBookPlaySection";
+import CustomerTestimonialsSection from "@/components/CustomerTestimonialsSection";
 
 export default function FeaturesPage() {
-  // Define the features data
-  const features = [
+  // Define the features sections data
+  const featureSections = [
     {
-      title: "Effortless Booking",
-      description: "Experience the easiest way to book soccer turfs with our intuitive platform.",
-      bulletPoints: [
-        "Real-Time Availability: See open time slots instantly",
-        "Flexible Search: Filter turfs by location, price, and amenities",
-        "Instant Reservations: Book your perfect pitch with just a few taps"
-      ],
       imageSrc: "/feature-booking-app.png",
-      imageAlt: "Booking Feature Screenshot",
-      reversed: false
+      imageAlt: "Booking & Management Features",
+      reversed: false,
+      cards: [
+        {
+          title: "Effortless Booking",
+          description: "Experience the easiest way to book soccer turfs with our intuitive platform.",
+          bulletPoints: [
+            "Real-Time Availability: See open time slots instantly",
+            "Flexible Search: Filter turfs by location, price, and amenities",
+            "Instant Reservations: Book your perfect pitch with just a few taps"
+          ]
+        },
+        {
+          title: "Smart Management",
+          description: "Manage your bookings and payments with our intelligent dashboard.",
+          bulletPoints: [
+            "Booking Dashboard: Track and manage all reservations",
+            "Real-Time Notifications: Stay updated on bookings",
+            "Payment Processing: Secure and instant payment collection"
+          ]
+        }
+      ]
     },
     {
-      title: "Community Building",
-      description: "Connect with other soccer enthusiasts and build your network.",
-      bulletPoints: [
-        "Experience the benefits of a decentralized platform that ensures transparency, security, and trust in every transaction"
-      ],
       imageSrc: "/feature-community-app.png",
-      imageAlt: "Community Feature Screenshot",
-      reversed: true
+      imageAlt: "Community & Growth Features",
+      reversed: true,
+      cards: [
+        {
+          title: "Community Building",
+          description: "Connect with other soccer enthusiasts and build your network.",
+          bulletPoints: [
+            "Experience the benefits of a decentralized platform that ensures transparency, security, and trust in every transaction"
+          ]
+        },
+        {
+          title: "Business Growth",
+          description: "For turf owners: Grow your business with our powerful tools.",
+          bulletPoints: [
+            "Analytics Dashboard: Understand booking trends",
+            "Visibility Boost: Reach more players across East Africa",
+            "Marketing Tools: Promote your turf with built-in features"
+          ]
+        }
+      ]
     },
     {
-      title: "Smart Management",
-      description: "Manage your bookings and payments with our intelligent dashboard.",
-      bulletPoints: [
-        "Booking Dashboard: Track and manage all reservations",
-        "Real-Time Notifications: Stay updated on bookings",
-        "Payment Processing: Secure and instant payment collection"
-      ],
-      imageSrc: "/feature-management-app.png",
-      imageAlt: "Management Feature Screenshot",
-      reversed: false
-    },
-    {
-      title: "Business Growth",
-      description: "For turf owners: Grow your business with our powerful tools.",
-      bulletPoints: [
-        "Analytics Dashboard: Understand booking trends",
-        "Visibility Boost: Reach more players across East Africa",
-        "Marketing Tools: Promote your turf with built-in features"
-      ],
-      imageSrc: "/feature-business-app.png",
-      imageAlt: "Business Growth Feature Screenshot",
-      reversed: true
-    },
-    {
-      title: "Real-time Tracking",
-      description: "Keep track of all your bookings and payments in real-time.",
-      bulletPoints: [
-        "Stay updated with real-time tracking of your cryptocurrency portfolio, allowing you to monitor price fluctuations and make informed decisions."
-      ],
-      imageSrc: "/feature-tracking-app.png",
-      imageAlt: "Tracking Feature Screenshot",
-      reversed: false
-    },
-    {
-      title: "Advanced Encryption",
-      description: "Your data is secure with our advanced encryption technology.",
-      bulletPoints: [
-        "Rest easy knowing your sensitive data is protected with advanced encryption techniques, ensuring the confidentiality and integrity of your information."
-      ],
       imageSrc: "/feature-encryption-app.png",
-      imageAlt: "Encryption Feature Screenshot",
-      reversed: true
+      imageAlt: "Security & Tracking Features",
+      reversed: false,
+      cards: [
+        {
+          title: "Real-time Tracking",
+          description: "Keep track of all your bookings and payments in real-time.",
+          bulletPoints: [
+            "Stay updated with real-time tracking of your cryptocurrency portfolio, allowing you to monitor price fluctuations and make informed decisions."
+          ]
+        },
+        {
+          title: "Advanced Encryption",
+          description: "Your data is secure with our advanced encryption technology.",
+          bulletPoints: [
+            "Rest easy knowing your sensitive data is protected with advanced encryption techniques, ensuring the confidentiality and integrity of your information."
+          ]
+        }
+      ]
     }
   ];
   
@@ -120,28 +124,63 @@ export default function FeaturesPage() {
   return (
     <div className="bg-white">
       <Navbar />
+      
       <main>
+      <div className='m-2 md:mx-5 my-2 '>
         <FeatureHero />
+
+      </div>
         <FindBookPlaySection />
         
         {/* Feature Sections */}
-        {features.map((feature, idx) => (
-          <FeatureSection 
-            key={idx}
-            title={feature.title}
-            description={feature.description}
-            bulletPoints={feature.bulletPoints}
-            imageSrc={feature.imageSrc}
-            imageAlt={feature.imageAlt}
-            reversed={feature.reversed}
-          />
-        ))}
+        <div className="py-12">
+          {featureSections.map((section, idx) => (
+            <div key={idx} className="mb-16 border-b border-gray-200 pb-16 last:border-b-0">
+              <div className="container mx-auto px-4">
+                <div className={`flex flex-col ${section.reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-12`}>
+                  {/* Image Column */}
+                  <div className="w-full lg:w-1/2">
+                    <div className="relative">
+                      <img 
+                        src={section.imageSrc} 
+                        alt={section.imageAlt}
+                        className="w-full h-auto object-contain"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Content Column with Two Vertical Cards */}
+                  <div className="w-full lg:w-1/2 space-y-6">
+                    {section.cards.map((card, cardIdx) => (
+                      <div key={cardIdx} className="bg-white shadow-sm rounded-lg border border-gray-100 p-6">
+                        <h2 className="text-xl font-bold mb-3 text-primary">{card.title}</h2>
+                        <p className="text-gray-600 mb-4">{card.description}</p>
+                        <ul className="space-y-2">
+                          {card.bulletPoints.map((point, pointIdx) => (
+                            <li key={pointIdx} className="flex items-start">
+                              <span className="text-primary mr-2">-</span>
+                              <span className="text-gray-700">{point}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
         
         {/* FAQ Sections */}
         <FaqSection title="General Questions" faqs={generalFaqs} />
         <FaqSection title="Payment Questions" faqs={paymentFaqs} />
       </main>
+      <CustomerTestimonialsSection />
+      <div className='md:m-5 mb-0'>
       <Footer />
+
+      </div>
     </div>
   );
 }

@@ -78,13 +78,17 @@ export default function FaqsPage() {
   return (
     <div className="bg-white">
       <Navbar />
-      
+       
+      <div className='m-2 md:mx-5 my-2 '>
+
       {/* Hero Section */}
       <section className="w-full py-20 px-6 md:px-12 bg-[#002029] text-white">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">FAQs</h1>
         </div>
       </section>
+      </div>
+      
       
       <main className="max-w-3xl mx-auto px-6 py-16">
         <h2 className="text-3xl font-bold text-center text-[#002029] mb-2">Frequently Asked Questions</h2>
@@ -92,7 +96,10 @@ export default function FaqsPage() {
         
         {/* General Questions */}
         <div className="mb-12">
+        <div className="items-center justify-center flex">
           <h3 className="text-2xl font-bold text-[#002029] mb-6">General Questions</h3>
+
+        </div>
           <div className="space-y-2">
             {generalFaqs.map((faq, idx) => (
               <FaqAccordionItem key={idx} question={faq.question} answer={faq.answer} />
@@ -102,29 +109,37 @@ export default function FaqsPage() {
         
         {/* Payment Questions */}
         <div className="mb-12">
+          <div className="items-center justify-center flex">
+
           <h3 className="text-2xl font-bold text-[#002029] mb-6">Payment Questions</h3>
+          </div>
           <div className="space-y-2">
             {paymentFaqs.map((faq, idx) => (
               <FaqAccordionItem key={idx} question={faq.question} answer={faq.answer} />
             ))}
           </div>
         </div>
-        
-        {/* CTA Section */}
-        <div className="mt-20 bg-[#002029] rounded-lg p-12 text-center text-white">
-          <h2 className="text-3xl font-bold mb-6">Ready to transform your Football experience</h2>
-          <div className="flex justify-center gap-4">
-            <a href="#" className="inline-block">
-              <img src="/app-store-badge.png" alt="Download on App Store" className="h-10" />
-            </a>
-            <a href="#" className="inline-block">
-              <img src="/google-play-badge.png" alt="Get it on Google Play" className="h-10" />
-            </a>
-          </div>
-        </div>
+             {/* CTA Section */}
+     
       </main>
+      <div className="mt-20 bg-[#002029] rounded-lg p-12 text-center text-white max-w-5xl mx-auto">
+        <h2 className="text-3xl font-bold mb-6">Ready to transform your Football experience</h2>
+        <div className="flex justify-center gap-4">
+        {/* <div className="mt-8 flex items-center gap-4 m-5"> */}
+          <a href="#" className="transition duration-300 hover:opacity-90">
+            <img src="/Crypto-Finance-App-Store.webp.svg" alt="Download on App Store" className="h-12" />
+          </a>
+          <a href="#" className="transition duration-300 hover:opacity-90">
+            <img src="/Crypto-Finance-Google-Play.webp.svg" alt="Get it on Google Play" className="h-12" />
+          </a>
+        </div>
+        {/* </div> */}
+      </div>
       
+      <div className='md:m-5 mb-0'>
       <Footer />
+
+      </div>
     </div>
   );
 }

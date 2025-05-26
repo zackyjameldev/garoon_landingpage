@@ -39,7 +39,8 @@ export default function ContactPage() {
   return (
     <div className="bg-white">
       <Navbar />
-      
+    
+      <div className='m-2 md:mx-5 my-2 '>
       {/* Hero Section */}
       <section className="w-full py-20 px-6 md:px-12 bg-[#002029] text-white">
         <div className="max-w-7xl mx-auto">
@@ -178,7 +179,12 @@ export default function ContactPage() {
         </div>
       </section>
       
+
+      </div>
+      <div className='md:m-5 mb-0'>
       <Footer />
+
+      </div>
     </div>
   );
 }

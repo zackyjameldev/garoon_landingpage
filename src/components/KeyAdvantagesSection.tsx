@@ -14,10 +14,10 @@ export default function KeyAdvantagesSection() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Advantage 1 */}
-            <div className="bg-[#00151B] rounded-lg p-6 flex flex-col items-center">
+            <div className="bg-[#00151B] rounded-xl px-2 py-5 flex flex-col items-center">
               <div className="mb-6 flex justify-center">
                 <img 
-                  src="/find-screenshot.png" 
+                  src="/4.svg" 
                   alt="Find your favorite turf" 
                   className="h-80 object-contain" 
                 />
@@ -32,7 +32,7 @@ export default function KeyAdvantagesSection() {
             <div className="bg-[#00151B] rounded-lg p-6 flex flex-col items-center">
               <div className="mb-6 flex justify-center">
                 <img 
-                  src="/book-screenshot.png" 
+                  src="/5.svg" 
                   alt="Book your favorite turf" 
                   className="h-80 object-contain" 
                 />
@@ -47,7 +47,7 @@ export default function KeyAdvantagesSection() {
             <div className="bg-[#00151B] rounded-lg p-6 flex flex-col items-center">
               <div className="mb-6 flex justify-center">
                 <img 
-                  src="/success-screenshot.png" 
+                  src="/6.svg" 
                   alt="Win the Game" 
                   className="h-80 object-contain" 
                 />

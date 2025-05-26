@@ -17,15 +17,26 @@ import CustomerTestimonialsSection from '@/components/CustomerTestimonialsSectio
 export default function HomePage() {
   return (
     <main className="flex min-h-screen flex-col">
+    
       <Navbar />
+      
+      <div className='m-2 mb-0'>
+
+      </div>
+      <div className='m-2 md:mx-5 my-2 '>
+
       <HeroSection />
+      </div>
       <PartnersSection />
       <DualFeatureSection />
       <FindBookPlaySection />
       <DashboardFeaturesSection />
       <KeyAdvantagesSection />
       <CustomerTestimonialsSection />
+      <div className='md:m-5 mb-0'>
       <Footer />
+
+      </div>
     </main>
   );
 }
