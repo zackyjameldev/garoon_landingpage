@@ -1,0 +1,66 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        heading: ['InterVariable', 'sans-serif'],
+        body: ['InterVariable', 'sans-serif'],
+      },
+      colors: {
+        primary: '#0D4049',
+        secondary: '#2EE7A3',
+        tertiary: '#F8C200',
+        info: '#2F80ED',
+        success: '#27AE60',
+        error: '#EB5757',
+        black1: '#041518',
+        black2: '#062024',
+        white: '#FFFFFF',
+        gray1: '#616161',
+        gray2: '#ADADAD',
+        gray3: '#828282',
+        // Color shades (examples, add more as needed)
+        green: {
+          100: '#D0FAEB',
+          200: '#B1F6DD',
+          300: '#8AF2CC',
+          400: '#63EEBB',
+          500: '#3CE9AA',
+          600: '#1EE599',
+          700: '#12BF80',
+          800: '#0E9966',
+          900: '#08734D',
+          950: '#042E1F',
+        },
+        yellow: {
+          100: '#FEF3CC',
+          200: '#FDE8AA',
+          300: '#FCE180',
+          400: '#FAD655',
+          500: '#F9CC2A',
+          600: '#F8C200',
+          700: '#CFA200',
+          800: '#A58100',
+          900: '#7C6100',
+          950: '#322700',
+        },
+        blue: {
+          100: '#CFD9DB',
+          200: '#AEBFC2',
+          300: '#86A0A4',
+          400: '#5E8086',
+          500: '#356067',
+          600: '#0D4049',
+          700: '#0B353D',
+          800: '#092B31',
+          900: '#072025',
+          950: '#03200F',
+        },
+      },
+    },
+  },
+  plugins: [],
+}; 
