@@ -40,7 +40,7 @@ export default function ValuesSection() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2">{value.title}</h3>
-                    <p className="text-gray-300">{value.description}</p>
+                    <p className="text-gray-900">{value.description}</p>
                   </div>
                 </div>
               ))}

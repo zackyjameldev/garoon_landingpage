@@ -5,6 +5,51 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        slideDown: 'slideDown 0.4s ease-out forwards',
+        shimmer: 'shimmer 2s infinite linear',
+        'spin-slow': 'spin 6s linear infinite',
+        rotateBorder: 'rotateBorder 4s linear infinite',
+        'fade-in': 'fadeIn 1s ease-out forwards',
+        'wiggle': 'wiggle 0.5s ease-in-out infinite',
+        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+        typing: 'typing 4s steps(30, end), blink .75s step-end infinite',
+        blink: 'blink .75s step-end infinite',
+      },
+      keyframes: {
+        slideDown: {
+          '0%': { opacity: '0', transform: 'translateY(-15%)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        shimmer: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+        rotateBorder: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        typing: {
+          '0%': { width: '0ch' },
+          '100%': { width: '30ch' },
+        },
+        blink: {
+          '0%, 100%': { borderColor: 'transparent' },
+          '50%': { borderColor: 'black' },
+        },
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        },
+        fadeIn: {
+          '0%': { opacity: 0, transform: 'translateY(10px)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' },
+        },
+        fadeInUp: {
+          '0%': { opacity: 0, transform: 'translateY(20px)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' },
+        },
+      },
       fontFamily: {
         heading: ['InterVariable', 'sans-serif'],
         body: ['InterVariable', 'sans-serif'],

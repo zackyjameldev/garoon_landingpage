@@ -37,41 +37,109 @@ function FaqAccordionItem({ question, answer }: FaqItem) {
 
 export default function FaqsPage() {
   // Define the FAQs data
-  const generalFaqs = [
+  const ownerFaqs = [
     {
-      question: "Is it safe to use a payment gateway app?",
-      answer: "Yes, using a reputable payment gateway app ensures secure transactions. The app employs various security measures, such as encryption, tokenization, and adherence to industry standards, to protect sensitive customer data and prevent unauthorized access."
+      question: "muxuu ii faa'iidaynayaa aniga oo ah mulkiile garoon?",
+      answer: "Waxaad heli doontaa hab casri ah oo aad ku maareyso boosaska, lacagaha, jadwalka, iyo macluumaadka macaamiishaada."
     },
     {
-      question: "How long does setup take?",
-      answer: "Setup typically takes 15-30 minutes. You'll need to create an account, verify your identity, and connect your payment methods."
+      question: "Sidee ugu biiri karaa GaroonHub?",
+      answer: "Booqo garoonhub.com ama la xidhiidhi maamulka GaroonHub si laguu diiwaangeliyo, laguna xidho garoonkaaga madasha."
     },
     {
-      question: "How does a payment gateway app work?",
-      answer: "A payment gateway app securely processes transactions between customers and merchants. It encrypts payment data, authenticates users, and facilitates fund transfers."
+      question: "Ma anigaa go'aaminaya qiimaha iyo saacadaha furitaanka garoonkayga?",
+      answer: "Haa, adigaa si buuxda u maamula qiimaha, xilliyada u furan yahay, iyo shuruudaha boos qabsiga."
     },
     {
-      question: "What customer support is available?",
-      answer: "We offer 24/7 customer support via chat, email, and phone. Our team is always ready to help with any issues or questions."
+      question: "Sidee loo maareeyaa lacagaha la bixiyo?",
+      answer: "Marka la xaqiijiyo in ciyaaryahanku si guul leh u bixiyey lacagta qabsashada adeegyada garoonka iyadoo loo marayo madasha GaroonHub, lacagta oo dhan waxaa si toos ah oo degdeg ah loogu kala qaybin doonaa."
+    },
+    {
+      question: "Maxaa dhacaya haddii ciyaartoy la yimaado ay is khilaafaan jadwalka?",
+      answer: "Jadwalka waxaa si toos ah u sugaya nidaamka GaroonHub, marka khilaaf dhaca waa arrin aad u yar oo si sahlan loo xaliyo."
+    },
+    {
+      question: "Ma la sameyn karaa qiimo dhimis gaar ah maalmaha gaarka ah?",
+      answer: "Haa, waxaad abuuri kartaa qiimo dhimis gaar ah maalmaha fasaxa ama xilliyada aan culeyska badnayn."
+    },
+    {
+      question: "Sidee ku helayaa xogta ciyaartoyda iyo taariikhda adeegsiga garoonka?",
+      answer: "App-ka GaroonHUb-Owner ee GaroonHub wuxuu kuu soo bandhigayaa warbixinno buuxa oo aad kala socon karto isticmaalka garoonkaaga."
+    },
+    {
+      question: "Ma la xayeysiin karaa garoonkayga?",
+      answer: "Haa, waxaad dooran kartaa inaad ku xayeysiisato, bogagga baraha bulshada, ama gudaha app-ka si aragtida garoonkaaga loo kordhiyo."
+    },
+    {
+      question: "Garoonkeygu wuxuu leeyahay xeerar gaar ah, sidee ugu dari karaa?",
+      answer: "Waxaad ku dari kartaa shuruudaha gaarka ah sida 'kabaha goonnida ah lama oggola' ama 'shurudaha jarista' inta la sameynayo jadwalka."
+    },
+    {
+      question: "Maxaa dhacaya haddii ciyaartoydu aysan imaanin wakhtigooda?",
+      answer: "Waxaa lagugula talinayaa in siyaasaddaadu bixiso cadeymo sida in lacagta aysan soo noqon doonin haddii la daaho."
+    },
+    {
+      question: "Sidee ula socon karaa dakhliga bishiiba?",
+      answer: "Nidaamka GaroonHub wuxuu kuu diyaarinayaa warbixinno maaliyadeed oo aad kala socon karto dakhliga iyo heerka isticmaalka garoonkaaga."
+    },
+    {
+      question: "Haddii dhibaato farsamo timaado, yaan la xidhiidhaa?",
+      answer: "Waad la xidhiidhi kartaa kooxda taageerada farsamada ee GaroonHub 15/7 si loo xalliyo cilad kasta."
     }
   ];
   
-  const paymentFaqs = [
+  const playerFaqs = [
     {
-      question: "Which payment methods does the app support?",
-      answer: "A payment gateway app typically supports various payment methods, including credit cards, debit cards, digital wallets (such as PayPal, Apple Pay or Google Pay), bank transfers, and sometimes alternative payment options like cryptocurrencies."
+      question: "GaroonHub maxay tahay?",
+      answer: "GaroonHub waa madal casri ah oo kuu oggolaanaysa inaad si fudud u raadiso, u ballansato, uguna bixiso lacagta garoomda kubada ee kugu dhow."
     },
     {
-      question: "Can I use a payment gateway app for e-commerce?",
-      answer: "Yes, our app is perfect for e-commerce businesses of all sizes. It integrates easily with most e-commerce platforms."
+      question: "Sidee ayaan garoon u qasan karaa?",
+      answer: "Ka dooro garoonka aad rabto app-ka GaroonHub, dooro xilliga (sacada) iyo tariikhda, kadibna ku bixi lacagta si booska laguugu xaqijiyo."
     },
     {
-      question: "Does the app offer recurring billing?",
-      answer: "Yes, our app supports recurring billing for subscription-based services. You can set up automatic payments on a schedule."
+      question: "Miyaan iska kansali (cancel) karaa ballanta garoonka?",
+      answer: "Haa, waad kansali kartaa, balse waxay ku xidhnaan doontaa siyaasadda kansalka ee garoonka. Qaar waxay bixiyaan lacag celin, qaarna ma bixiyaan."
     },
     {
-      question: "What are the fees associated with the app?",
-      answer: "Our fees are competitive and transparent. We charge a small percentage per transaction with no hidden costs."
+      question: "Goorma ayaa la i siinayaa lacagta haddii aan kansalo?",
+      answer: "Haddii kansalka la sameeyo xilli hore (tusaale 24 saac ka hor), waxaa suuragal ah in lacagtaada laguugu celiyo sii buuxda ama qeyb ahaan, iyadoo loo eegayo siyaasadda garoonka."
+    },
+    {
+      question: "Miyaan jadwalka beddeli karaa halkii aan kansali lahaa?",
+      answer: "Haa, ciyaartoydu waxay codsan karaan in jadwalka loo beddelo iyadoo la helayo oggolaansho maamulaha garoonka."
+    },
+    {
+      question: "Sidee ku ogaadaa in garoon la heli karo?",
+      answer: "App-ka GaroonHub wuxuu kuu soo bandhigayaa garoomada furan iyo xilliyada bannaan si aad si toos ah ugu aragto boosaska la heli karo."
+    },
+    {
+      question: "Maxaa dhaca haddii roob da'o ama xaalad degdeg ah timaado?",
+      answer: "Ciyaartaa dib loo dhigi karaa ama lacagtaada lagu celin karaa haddii cimilada ama xaalado kale oo aan la qorsheyn dhacaan."
+    },
+    {
+      question: "Sidee loo bixiyaa lacagta?",
+      answer: "Waxaad ku bixin kartaa lacagta adoo adeegsanaya Ebirr/Kaafi, HelloCash, Sahay, ama kaarka bangiga (Visa) ee bangiyada wadanka."
+    },
+    {
+      question: "App-ka GaroonHub miyaanu ku shaqaynaya offline?",
+      answer: "Maya, si aad u hesho garoomo iyo xog cusub, app-ku wuxuu u baahan yahay internet."
+    },
+    {
+      question: "Ma samaysan karaa Koox joogto ah (team profile)?",
+      answer: "Haa, waxaad samayn kartaa profile kooxeed si aad ugu qabsato garoomo koox ahaan oo aad u kaydiso taariikhda ciyaaraha (dhawaan filo)."
+    },
+    {
+      question: "Ma la wadaagi karaa xogta (QR-ka) booking-ka ciyaartoy kale?",
+      answer: "Haa, waxaad u diri kartaa saaxiibadaa (team) QR code si ay ugu xaqiijin booska."
+    },
+    {
+      question: "Miyaan heli karaa warbixinno ku saabsan taariikhda ciyaarihii hore?",
+      answer: "Haa, qaybta 'My Bookings' waxaad ka heli kartaa dhammaan ciyaarihii aad hore u qabsatay."
+    },
+    {
+      question: "Sidee ula xidhiidhaa taageerada macaamiisha haddii ay dhibaato dhacdo?",
+      answer: "Waxaad kala xiriiri kartaa garoonhubapp@gmail.com ama adeegga macaamiisha ee gudaha app-ka oo 15/7 diyaar ah."
     }
   ];
   
@@ -94,27 +162,25 @@ export default function FaqsPage() {
         <h2 className="text-3xl font-bold text-center text-[#002029] mb-2">Frequently Asked Questions</h2>
         <p className="text-center text-gray-600 mb-12">Have questions? We're here to help.</p>
         
-        {/* General Questions */}
+        {/* Owner Questions */}
         <div className="mb-12">
         <div className="items-center justify-center flex">
-          <h3 className="text-2xl font-bold text-[#002029] mb-6">General Questions</h3>
-
+          <h3 className="text-2xl font-bold text-[#002029] mb-6">Owner Questions</h3>
         </div>
           <div className="space-y-2">
-            {generalFaqs.map((faq, idx) => (
+            {ownerFaqs.map((faq, idx) => (
               <FaqAccordionItem key={idx} question={faq.question} answer={faq.answer} />
             ))}
           </div>
         </div>
         
-        {/* Payment Questions */}
+        {/* Player Questions */}
         <div className="mb-12">
           <div className="items-center justify-center flex">
-
-          <h3 className="text-2xl font-bold text-[#002029] mb-6">Payment Questions</h3>
+          <h3 className="text-2xl font-bold text-[#002029] mb-6">Player Questions</h3>
           </div>
           <div className="space-y-2">
-            {paymentFaqs.map((faq, idx) => (
+            {playerFaqs.map((faq, idx) => (
               <FaqAccordionItem key={idx} question={faq.question} answer={faq.answer} />
             ))}
           </div>
@@ -125,7 +191,6 @@ export default function FaqsPage() {
       <div className="mt-20 bg-[#002029] rounded-lg p-12 text-center text-white max-w-5xl mx-auto">
         <h2 className="text-3xl font-bold mb-6">Ready to transform your Football experience</h2>
         <div className="flex justify-center gap-4">
-        {/* <div className="mt-8 flex items-center gap-4 m-5"> */}
           <a href="#" className="transition duration-300 hover:opacity-90">
             <img src="/Crypto-Finance-App-Store.webp.svg" alt="Download on App Store" className="h-12" />
           </a>
@@ -133,12 +198,10 @@ export default function FaqsPage() {
             <img src="/Crypto-Finance-Google-Play.webp.svg" alt="Get it on Google Play" className="h-12" />
           </a>
         </div>
-        {/* </div> */}
       </div>
       
       <div className='md:m-5 mb-0'>
       <Footer />
-
       </div>
     </div>
   );

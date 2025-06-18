@@ -9,6 +9,37 @@
   --foreground: #171717;
 }
 
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-15%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.4s ease-out forwards;
+}
+
+
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

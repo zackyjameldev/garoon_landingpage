@@ -1,5 +1,9 @@
+
+
+
+
 'use client';
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import FeatureHero from "../../components/FeatureHero";
@@ -9,6 +13,22 @@ import FindBookPlaySection from "../../components/FindBookPlaySection";
 import CustomerTestimonialsSection from "@/components/CustomerTestimonialsSection";
 
 export default function FeaturesPage() {
+  // State for tracking loaded images
+  const [loadedImages, setLoadedImages] = useState<{[key: string]: boolean}>({});
+
+  // Effect to simulate image loading
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const newLoadedImages = {...loadedImages};
+      featureSections.forEach(section => {
+        newLoadedImages[section.imageSrc] = true;
+      });
+      setLoadedImages(newLoadedImages);
+    }, 500); // Simulate loading delay
+
+    return () => clearTimeout(timer);
+  }, []);
+
   // Define the features sections data
   const featureSections = [
     {
@@ -29,7 +49,6 @@ export default function FeaturesPage() {
           description: "",
           bulletPoints: [
             "Experience the benefits of a decentralized platform that ensures transparency, security, and trust in every transaction.",
-        
           ]
         }
       ]
@@ -124,35 +143,40 @@ export default function FeaturesPage() {
       <Navbar />
       
       <main>
-      <div className='m-2 md:mx-5 my-2 '>
-        <FeatureHero />
-
-      </div>
+        <div className='m-2 md:mx-5 my-2'>
+          <FeatureHero />
+        </div>
          
-        
         {/* Feature Sections */}
         <div className="py-12">
           {featureSections.map((section, idx) => (
             <div key={idx} className="mb-16 border-b border-gray-200 pb-16 last:border-b-0">
               <div className="container mx-auto px-4">
-                <div className={`flex items-center justify-center md:mx-64 flex-col ${section.reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} `}>
+                <div className={`flex items-center justify-center md:mx-64 flex-col ${section.reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-8 lg:gap-16`}>
                   {/* Image Column */}
                   <div className="w-full lg:w-1/2 mx-5">
                     <div className="relative">
-                      <img 
-                        src={section.imageSrc} 
-                        alt={section.imageAlt}
-                        className="h-96 object-contain"
-                      />
+                      {!loadedImages[section.imageSrc] ? (
+                        <div className="animate-pulse bg-gray-200 rounded-lg h-96 w-full"></div>
+                      ) : (
+                        <img 
+                          src={section.imageSrc} 
+                          alt={section.imageAlt}
+              // width={'200%'}
+
+                          className=" object-contain"
+                          onLoad={() => setLoadedImages(prev => ({...prev, [section.imageSrc]: true}))}
+                        />
+                      )}
                     </div>
                   </div>
                   
                   {/* Content Column with Two Vertical Cards */}
-                  <div className="w-full space-y-6">
+                  <div className="w-full lg:w-1/2 space-y-6">
                     {section.cards.map((card, cardIdx) => (
                       <div key={cardIdx} className="bg-white shadow-sm rounded-lg border border-gray-100 p-6">
                         <h2 className="text-xl font-bold mb-3 text-primary">{card.title}</h2>
-                        <p className="text-gray-600 mb-4">{card.description}</p>
+                        {card.description && <p className="text-gray-600 mb-4">{card.description}</p>}
                         <ul className="space-y-2">
                           {card.bulletPoints.map((point, pointIdx) => (
                             <li key={pointIdx} className="flex items-start">
@@ -169,27 +193,38 @@ export default function FeaturesPage() {
             </div>
           ))}
         </div>
-         <FindBookPlaySection />
-    
-
+        
+        <FindBookPlaySection />
       </main>
-       {/* CTA Section */}
-       <div className="mt-20 bg-[#002029] rounded-lg p-12 text-center text-white max-w-5xl mx-auto">
+      
+      {/* CTA Section */}
+      <div className="mt-20 bg-[#002029] rounded-lg p-12 text-center text-white max-w-5xl mx-auto">
         <h2 className="text-3xl font-bold mb-6">Ready to transform your Football experience</h2>
         <div className="flex justify-center gap-4">
-        {/* <div className="mt-8 flex items-center gap-4 m-5"> */}
           <a href="#" className="transition duration-300 hover:opacity-90">
-            <img src="/Crypto-Finance-App-Store.webp.svg" alt="Download on App Store" className="h-12" />
+            <img 
+              src="/Crypto-Finance-App-Store.webp.svg" 
+              alt="Download on App Store" 
+              className="h-12"
+              loading="lazy"
+            />
           </a>
-          <a href="https://play.google.com/store/apps/details?id=apkzacky.com.gopplayapp.garoonplayer" className="transition duration-300 hover:opacity-90">
-            <img src="/Crypto-Finance-Google-Play.webp.svg" alt="Get it on Google Play" className="h-12" />
+          <a 
+            href="https://play.google.com/store/apps/details?id=apkzacky.com.gopplayapp.garoonplayer" 
+            className="transition duration-300 hover:opacity-90"
+          >
+            <img 
+              src="/Crypto-Finance-Google-Play.webp.svg" 
+              alt="Get it on Google Play" 
+              className="h-12"
+              loading="lazy"
+            />
           </a>
         </div>
-        {/* </div> */}
       </div>
+      
       <div className='md:m-5 mb-0'>
-      <Footer />
-
+        <Footer />
       </div>
     </div>
   );

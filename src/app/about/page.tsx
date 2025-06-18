@@ -17,7 +17,7 @@ export default function AboutPage() {
      
       <main>
         <TeamSection />
-        <PartnersSection />
+        {/* <PartnersSection /> */}
         <StatsSection />
         <JourneySection />
       <div className=' mb-20 mx-10  '>

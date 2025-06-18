@@ -2,103 +2,86 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
-const TEXTS = ['Perfect', 'Favor', 'Amazing'];
-const ANIMATION_SPEED = 300; // 300ms per letter for both typing and erasing
-const TRANSITION_DELAY = 1000; // 1 second delay between words
+const TEXTS = ['Best', 'Favourite', 'Perfect'];
+const TYPING_SPEED = 150;
+const DELETING_SPEED = 100;
+const PAUSE_BEFORE_DELETING = 1200;
+const PAUSE_BEFORE_TYPING = 500;
+
 
 export default function HeroSection() {
+  const [currentText, setCurrentText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [currentText, setCurrentText] = useState(TEXTS[0]);
-  const [isTyping, setIsTyping] = useState(true);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    let timer;
+
+    const fullText = TEXTS[currentIndex];
+
+    if (!isDeleting && currentText === fullText) {
+      // Pause before deleting
+      timer = setTimeout(() => setIsDeleting(true), PAUSE_BEFORE_DELETING);
+    } else if (isDeleting && currentText === '') {
+      // Move to next word and start typing
+      setIsDeleting(false);
       setCurrentIndex((prev) => (prev + 1) % TEXTS.length);
-    }, (ANIMATION_SPEED * 2) * TEXTS[0].length + TRANSITION_DELAY); // Total duration based on word length
+      timer = setTimeout(() => {}, PAUSE_BEFORE_TYPING);
+    } else {
+      timer = setTimeout(() => {
+        const updatedText = isDeleting
+          ? fullText.substring(0, currentText.length - 1)
+          : fullText.substring(0, currentText.length + 1);
+        setCurrentText(updatedText);
+      }, isDeleting ? DELETING_SPEED : TYPING_SPEED);
+    }
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearTimeout(timer);
+  }, [currentText, isDeleting, currentIndex]);
 
-  useEffect(() => {
-    let text = TEXTS[currentIndex];
-    let i = 0;
-    
-    const animateText = () => {
-      if (isTyping) {
-        // Typing phase
-        setCurrentText(text.substring(0, i + 1));
-        i++;
-        
-        if (i === text.length) {
-          setIsTyping(false);
-          i = 1; // Start from 1 for erasing
-        }
-      } else {
-        // Erasing phase
-        setCurrentText(text.substring(0, text.length - i));
-        i++;
-        
-        if (i === text.length) {
-          // Start next word immediately
-          setCurrentIndex((prev) => (prev + 1) % TEXTS.length);
-          setIsTyping(true);
-          i = 0;
-        }
-      }
-    };
-
-    const animationInterval = setInterval(animateText, ANIMATION_SPEED);
-
-    return () => {
-      clearInterval(animationInterval);
-    };
-  }, [currentIndex]);
-
-  const avatars = [
-    'https://randomuser.me/api/portraits/women/44.jpg',
-    'https://randomuser.me/api/portraits/men/46.jpg',
-    'https://randomuser.me/api/portraits/women/47.jpg',
-  ];
+  // Avatars omitted for brevity (same as before)
 
   return (
-    <section className="border-2 rounded-2xl  w-full flex flex-col md:flex-row items-center justify-between py-16 md:py-18 px-6 md:px-12 bg-[#002029] text-white">
-      {/* Trust Badge */}
-      {/* <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-[#0D4049] rounded-full px-4 py-1 text-xs flex items-center gap-2 text-white">
-        <span className="bg-[#F8C200] text-[#002029] rounded-full px-2 py-0.5 font-medium">5.0★</span>
-        <span>Trusted by 25,000+ people</span>
-      </div> */}
-      
+    <section className="opacity-0 animate-fade-in delay-200  rounded-2xl w-full flex flex-col md:flex-row items-center justify-between pt-16 md:pt-18 px-6 md:px-12 bg-[#002029] text-white">
       {/* Left: Text */}
       <div className="flex-1 flex flex-col gap-6 max-w-xl mt-8">
-      <div className="inline-flex items-center w-80 border border-white/20 rounded-full px-4 py-1 bg-[#0C1A1A] text-white text-sm space-x-2">
-      <div className="flex -space-x-2">
-        {avatars.map((src, index) => (
-          <div key={index} className="w-6 h-6 rounded-full overflow-hidden border-2 border-[#0C1A1A]">
-            <Image
-              src={src}
-              alt={`User ${index + 1}`}
-              width={24}
-              height={24}
-              className="object-cover"
-            />
+        {/* Avatars */}
+        <div className="inline-flex items-center w-80 border border-white/20 rounded-full px-4 py-1 bg-[#0C1A1A] text-white text-sm space-x-2">
+          <div className="flex -space-x-2">
+            {[
+              'https://randomuser.me/api/portraits/women/44.jpg',
+              'https://randomuser.me/api/portraits/men/46.jpg',
+              'https://randomuser.me/api/portraits/women/47.jpg',
+            ].map((src, index) => (
+              <div key={index} className="w-6 h-6 rounded-full overflow-hidden border-2 border-[#0C1A1A]">
+                <Image
+                  src={src}
+                  alt={`User ${index + 1}`}
+                  width={24}
+                  height={24}
+                  className="object-cover"
+                />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <span>Trusted by 20,000+ people</span>
-    </div>
+          <span>Trusted by 20,000+ people</span>
+        </div>
+
         <h1 className="font-heading text-4xl md:text-5xl font-bold leading-tight">
-  Book Your <span className="bg-gradient-to-r from-[#2EE7A3] to-[#F8C200] bg-clip-text text-transparent">
-    <span className="animate-typing">
-      {currentText}
-    </span>
-  </span>
-  <br />
-  Stadium in Seconds
-</h1>
+          Book Your{' '}
+          <span className="bg-gradient-to-r from-[#2EE7A3] to-[#F8C200] bg-clip-text text-transparent">
+            <span className="inline-block border-r-[2px] border-white animate-caret">
+              {currentText}
+            </span>
+          </span>
+          <br />
+          Stadium in Seconds
+        </h1>
 
         <p className="font-body text-lg md:text-xl text-gray-300">
           The easiest way for players and teams in Ethiopia to discover, book, and pay for top-quality soccer turfs online.
         </p>
+
         <div className="mt-8 flex items-center gap-4 m-5">
           <a href="#" className="transition duration-300 hover:opacity-90">
             <img src="/Crypto-Finance-App-Store.webp.svg" alt="Download on App Store" className="h-12" />
@@ -108,15 +91,26 @@ export default function HeroSection() {
           </a>
         </div>
       </div>
-      
+
       {/* Right: Phone Mockup */}
-      <div className="flex-1 flex justify-center mt-12 md:mt-0 m-5">
+      <div className="flex-1 flex justify-center mt-12 md:mt-0 mx-5 mt-5">
         <img 
           src="/hero.svg" 
           alt="GaroonHub App Preview" 
           className="max-w-full h-auto md:max-h-[600px] drop-shadow-2xl" 
         />
       </div>
+
+      <style jsx>{`
+        /* Blinking caret animation */
+        .animate-caret {
+          animation: blink-caret 1s step-end infinite;
+        }
+        @keyframes blink-caret {
+          0%, 50% { border-color: transparent; }
+          51%, 100% { border-color: white; }
+        }
+      `}</style>
     </section>
   );
 }

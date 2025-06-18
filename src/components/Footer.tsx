@@ -9,7 +9,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-[#fff] mb-5 text-white">
+    <footer className="w-full bg-[#fff] mb-5 text-white ">
       {/* Top section */}
       <div className=" mb-5 rounded-md px-5 mx-2 md:px-28 bg-[#041518] max-w-7xl   py-14 flex flex-col md:flex-row md:justify-between gap-10">
         {/* Logo & Description */}

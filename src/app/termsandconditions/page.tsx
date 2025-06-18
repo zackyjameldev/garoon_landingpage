@@ -3,16 +3,26 @@ import Head from "next/head";
 
 const TermsAndConditions = () => {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8 text-gray-500">
+    <div className="max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8 text-gray-900">
+      <a href="/" className="mb-4 text-blue-600 hover:underline flex items-center gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+        Back
+        </a>
+
+
       <Head>
         <title>Shuruudaha iyo Xaaladaha GaroonHub</title>
         <meta name="description" content="Shuruudaha iyo Xaaladaha GaroonHub" />
       </Head>
 
+
       <header className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Shuruudaha iyo Xaaladaha GaroonHub</h1>
         <p className="text-gray-600"><strong>La Cusbooneysiiyey:</strong> 29 Abrili 2025</p>
       </header>
+
 
       <div className="prose prose-blue max-w-none">
         <p className="mb-6">

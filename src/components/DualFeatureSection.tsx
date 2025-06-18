@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function DualFeatureSection() {
   return (
@@ -40,20 +41,39 @@ export default function DualFeatureSection() {
             </div>
 
             <div className="flex justify-center mb-8">
+                
+
+
                   <a 
                     href="https://play.google.com/store/apps/details?id=apkzacky.com.gopplayapp.garoonplayer" 
-                    className="inline-flex items-center bg-[#2EE7A3] text-[#002029] font-medium px-6 py-3 rounded-md hover:bg-opacity-90 transition duration-300"
-                  >
+                  className="relative inline-flex items-center group bg-[#2EE7A3] text-[#002029] font-medium px-6 py-3 rounded-md overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ease-out"
+                >
+                  <span className="relative z-10 transition-all duration-300 group-hover:translate-x-1">
                     Get Started
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                  </a>
+                  </span>
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    className="h-5 w-5 ml-2 relative z-10 transition-all duration-300 group-hover:translate-x-1" 
+                    viewBox="0 0 20 20" 
+                    fill="currentColor"
+                  >
+                    <path 
+                      fillRule="evenodd" 
+                      d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" 
+                      clipRule="evenodd" 
+                    />
+                  </svg>
+
+                  {/* Background shimmer effect */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20 opacity-0 group-hover:opacity-100 transition duration-700 animate-shimmer" />
+                </a>
+
+
                 </div>
 
             <div className=" items-end justify-center flex">
 
-            <img src="/image 65.svg" alt="Player app" className="" />
+            <img src="/image 65.svg" width={'76.8%'} alt="Player app" className="" />
             </div>
           </div>
 
@@ -89,20 +109,35 @@ export default function DualFeatureSection() {
           
 
             <div className="flex justify-center mb-8">
-                  <a 
-                    href="https://play.google.com/store/apps/details?id=apkzacky.com.gopplayapp.garoon" 
-                    className="inline-flex items-center bg-[#2EE7A3] text-[#002029] font-medium px-6 py-3 rounded-md hover:bg-opacity-90 transition duration-300"
-                  >
-                    Get Started
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                  </a>
+                        <a 
+              href="https://play.google.com/store/apps/details?id=apkzacky.com.gopplayapp.garoonplayer" 
+              className="relative inline-flex items-center group bg-[#2EE7A3] text-[#002029] font-medium px-6 py-3 rounded-md overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ease-out"
+            >
+              <span className="relative z-10 transition-all duration-300 group-hover:translate-x-1">
+                Get Started
+              </span>
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                className="h-5 w-5 ml-2 relative z-10 transition-all duration-300 group-hover:translate-x-1" 
+                viewBox="0 0 20 20" 
+                fill="currentColor"
+              >
+                <path 
+                  fillRule="evenodd" 
+                  d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" 
+                  clipRule="evenodd" 
+                />
+              </svg>
+
+              {/* Background shimmer effect */}
+              <span className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20 opacity-0 group-hover:opacity-100 transition duration-700 animate-shimmer" />
+            </a>
+
                 </div>
 
             <div className=" items-center justify-center flex">
 
-            <img src="/image 67.svg" alt="Owner app" className="" />
+            <img src="/image 65.svg"  width={'70%'} alt="Owner app" className="" />
 </div>
 
 

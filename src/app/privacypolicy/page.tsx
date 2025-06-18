@@ -1,9 +1,19 @@
 import React from "react";
 import Head from "next/head";
+import { FiArrowLeft } from 'react-icons/fi';
 
 const PrivacyPolicy = () => {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8 text-gray-500">
+    <div className="max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8 text-gray-900">
+
+<a href="/" className="mb-4 text-blue-600 hover:underline flex items-center gap-1">
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+  </svg>
+  Back
+</a>
+
+
       <Head>
         <title>GaroonHub Privacy Policy</title>
         <meta name="description" content="GaroonHub Privacy Policy" />

@@ -27,14 +27,16 @@ export default function HomePage() {
 
       <HeroSection />
       </div>
-      <PartnersSection />
+      <div className='my-20'></div>
+      {/* <PartnersSection /> */}
       <DualFeatureSection />
       <FindBookPlaySection />
       <DashboardFeaturesSection />
       <KeyAdvantagesSection />
       <CustomerTestimonialsSection />
-      <div className='md:m-5 mb-0'>
+      <div className='md:m-5 m-0  '>
       <Footer />
+       
 
       </div>
     </main>
